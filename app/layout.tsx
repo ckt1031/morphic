@@ -7,6 +7,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Sidebar } from '@/components/sidebar'
 import { Toaster } from '@/components/ui/sonner'
+import { auth, signIn } from './auth'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -40,11 +41,17 @@ export const viewport: Viewport = {
   maximumScale: 1
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const session = await auth()
+
+  if (!session) {
+    return await signIn()
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', fontSans.variable)}>
