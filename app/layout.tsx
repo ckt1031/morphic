@@ -9,7 +9,7 @@ import { Sidebar } from '@/components/sidebar'
 import { Toaster } from '@/components/ui/sonner'
 import { auth, signIn } from './auth'
 
-export const runtime = 'edge';
+export const runtime = process.env.RUNTIME || 'edge';
 
 const fontSans = FontSans({
   subsets: ['latin'],
