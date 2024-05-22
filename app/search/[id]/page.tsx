@@ -3,7 +3,7 @@ import { Chat } from '@/components/chat'
 import { getChat } from '@/lib/actions/chat'
 import { AI } from '@/app/actions'
 
-export const runtime = (process.env.RUNTIME as 'nodejs') || 'edge';
+export const runtime = 'edge';
 
 export interface SearchPageProps {
   params: {
