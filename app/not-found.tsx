@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export const runtime = process.env.RUNTIME || 'edge';
+export const runtime = (process.env.RUNTIME as 'nodejs') || 'edge';
 
 export default function NotFound() {
   return (
